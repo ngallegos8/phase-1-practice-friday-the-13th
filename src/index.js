@@ -64,13 +64,34 @@ document.addEventListener("DOMContentLoaded", () => {
     //     })
     // }
 
-    function watchHistory(history) {
-        if(history === "true") {
-            buttonText = "Watched"
-        } else {
-            buttonText = "Unwatched"
+
+
+    function createCounter() {
+        let count = 0;
+        return function() {
+           count++;
+           return count;
         }
-    }
+     }
+     const counter = createCounter();
+     const button = document.querySelector("#watched");
+     const countDisplay = document.getElementById("count");
+     button.addEventListener("click", () => {
+        countDisplay.innerHTML = counter();
+     });
+
+    // history = countDisplay
+
+    function watchHistory(countDisplay)
+        countDisplay % === 0 ? "Watched" : "Unwatched"
+
+    // function watchHistory(history) {
+    //     if(history === "true") {
+    //         buttonText = "Watched"
+    //     } else {
+    //         buttonText = "Unwatched"
+    //     }
+    // }
 
 
     let bloodDropRating = movieData.blood_amount
