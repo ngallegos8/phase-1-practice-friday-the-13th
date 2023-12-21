@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // const bloodRating = document.querySelector("#amount")
         bloodRating.textContent = movieData.blood_amount
+        btnWatched.addEventListener("click", () => {
+            movieData.watched = !movieData.watched // !!!without this, it will always be true !!!
         if(movieData.watched){
             btnWatched.textContent = "Watched" 
         }
@@ -58,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
             btnWatched.textContent = "Unwatched" 
         }
         // movieData.watched ? btnWatched.textContent = "Unwatched" : btnWatched.textContent = "Unwatched"
+    })
+
     }
 
     // function watchHistory (btnWatched) {
@@ -119,16 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 
-   
-
-    // function submitForm(){
-    //     let form = document.querySelector("#high-score-form")
-    //     form.addEventListener("submit", (event)=> {
-    //         event.preventDefault()
-    //         currentGame.high_score = event.target["score-input"].value
-    //         showDetails(currentGame)
-    //     })
-    // }
     
 
 
